@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Form Page{% endblock %}
+
+{% block content %}
+<h1>Form Page</h1>
+<form method="post">
+  {% csrf_token %}
+  <label for="name">Name:</label>
+  <input type="text"  id="name" name="name" required>
+  <br>
+  <label for="dob">Date of Birth:</label>
+  <input type="date"  id="dob" name="dob" required>
+  <br>
+  <label for="age">Age:</label>
+  <input type="number" id="age" name="age" required>
+  <br>
+  <label for="gender">Gender:</label>
+  <input type="radio" id="male" name="gender" value="male" required>
+  <label for="male">Male:</label>
+  <input type="radio" id="female" name="gender" value="female"  required>
+  <label for="female">Female:</label>
+  <br>
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="number"  id="phoneNumber"  name="phoneNumber" required>
+  <br>
+  <label for="email">Email:</label>
+  <input type="text" id="email"  name="your email" required>
+  <br>
+   <label for="address">Address:</label>
+  <textarea name="address" id="address" placeholder="Address"></textarea>
+  <br>
+  <label for="district">District</label>
+  <select name="district" id="district" class="district-dropdown">
+        <option value="">--Select District--</option>
+        <option value="Ernakulam">Ernakulam</option>
+        <option value="Thrissur">Thrissur</option>
+        <option value="Kottayam">Kottayam</option>
+        <option value="Alappuzha">Alappuzha</option>
+        <option value="Idukki">Idukki</option>
+      </select>
+  <br>
+  <label for="branch">Branch:</label>
+  <select name="branch" id="branch" class="branch-dropdown">
+       <option value="">--Select Branch--</option>
+        <option value="aluva">Aluva</option>
+        <option value="edapally">Edapally</option>
+        <option value="angamaly">Angamaly</option>
+        <option value="paravur">Paravur</option>
+
+      </select>
+  <br>
+  <label for="Account">Account Type</label>
+  <select id="account" name="account">
+        <option value="">Choose</option>
+        <option value="Savings">Savings</option>
+        <option value="Current">Current</option>
+      </select>
+  <br>
+  <label for="materials">Materials Required :</label>
+  <input type="checkbox" id="debit" name="materials[]" value="Debit Card">
+      <label for="debit">Debit Card</label>
+      <input type="checkbox" id="credit" name="materials[]" value="Credit Card">
+      <label for="credit">Credit Card</label>
+      <input type="checkbox" id="cheque" name="materials[]" value="Chequebook">
+      <label for="debit">Cheque Book</label>
+  <br>
+  <button type="submit">Submit</button>
+
+</form>
+ {% if message %}
+<p>{{ message }}</p>
+ {% endif %}
+
+{% endblock %}
